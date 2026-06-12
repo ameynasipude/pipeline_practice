@@ -1,0 +1,21 @@
+
+version: "3.8"
+
+services:
+  web:
+    build: .
+    image: java-web:${COMMIT_ID}
+    container_name: java_web
+    ports:
+      - "8081:8080"
+    restart: always
+    volumes:
+      - app-data:/app/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+
+volumes:
+  app-data:
